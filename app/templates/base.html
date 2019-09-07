@@ -1,0 +1,17 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - MusicBlog</title>
+        {% else %}
+        <title>Welcome to MusicBlog</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Musicblog:
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
