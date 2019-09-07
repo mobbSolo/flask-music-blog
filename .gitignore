@@ -1,4 +1,5 @@
 backup
+*.DS_*
 *.backup
 last_rsync.log
 cache
@@ -10,7 +11,7 @@ tags
 .tags
 .envrc
 .env
-__pycache__
+__pycache__/
 *.pyc
 *.pid
 *.db
