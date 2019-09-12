@@ -3,12 +3,12 @@
 {% block content %}
     <h1>Accintentional Method Magick</h1>
     {% for post in posts %}
-    <div>
-        <h3>{{ post.title }}</h3>
-        {% if post.link %}
-        <iframe width="560" height="315" src="{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        {% endif %}
-        <p>{{ post.body }}</p>
-    </div>
+        {% include '_post.html' %}
     {% endfor %}
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Newer posts</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Older posts</a>
+    {% endif %}
 {% endblock %}
