@@ -1,5 +1,14 @@
-<h3>{{ post.title }}</h3>
-{% if post.link %}
-<iframe width="560" height="315" src="{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-{% endif %}
-<p>{{ post.body }}</p>
+<h4 class="title is-4">{{ post.title }}</h4>
+<div class="block">
+    <div class="box has-text-centered">
+    {% if post.link %}
+    <div class="image">
+    <!--<iframe width="560" height="315" src="{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+    {% autoescape on %}{{ post.link }}{% endautoescape %}
+    </div>
+    {% endif %}
+    {% if post.body %}
+    <p class="content">{{ post.body }}</p>
+    {% endif %}
+    </div>
+</div>

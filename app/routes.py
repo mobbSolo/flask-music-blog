@@ -6,7 +6,7 @@ from app.models import Post
 @app.route('/index')
 def index():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.timestamp).paginate(
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
             page, app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('index', page=posts.next_num) \
             if posts.has_next else None

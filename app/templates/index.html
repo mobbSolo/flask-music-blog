@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Accintentional Method Magick</h1>
+    <div class="container has-text-centered">
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
+    </div>
+    <section class="section">
+    <nav class="pagination">
     {% if prev_url %}
-    <a href="{{ prev_url }}">Newer posts</a>
+    <a href="{{ prev_url }}" class="pagination-previous" >Newer posts</a>
     {% endif %}
     {% if next_url %}
-    <a href="{{ next_url }}">Older posts</a>
+    <a href="{{ next_url }}" class="pagination-next">Older posts</a>
     {% endif %}
+    </section>
 {% endblock %}

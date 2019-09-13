@@ -15,7 +15,7 @@
         <section class="section">
             <div class="container">
                 <a href="{{ url_for('index') }}">
-                    <h1 class="title">
+                    <h1 class="title is-1">
                         Musicblog:
                     </h1>
                     <p class="subtitle">
@@ -25,6 +25,13 @@
             </div>
         </section>
         <hr>
-        {% block content %}{% endblock %}
+        <section class="section">
+            <div class="columns is-centered">
+                <div class"column is-half">
+                {% block content %}{% endblock %}
+                </div>
+            </div>
+        </section>
+        {% block footer %}{% endblock %}
     </body>
 </html>
