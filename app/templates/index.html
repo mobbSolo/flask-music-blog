@@ -7,12 +7,12 @@
     {% endfor %}
     </div>
     <section class="section">
-    <nav class="pagination">
-    {% if prev_url %}
-    <a href="{{ prev_url }}" class="pagination-previous" >Newer posts</a>
-    {% endif %}
-    {% if next_url %}
-    <a href="{{ next_url }}" class="pagination-next">Older posts</a>
-    {% endif %}
+        <nav class="pagination">
+        {% if prev_url %}
+        <a href="{{ prev_url }}" class="pagination-previous" >Newer posts</a>
+        {% endif %}
+        {% if next_url %}
+        <a href="{{ next_url }}" class="pagination-next">Older posts</a>
+        {% endif %}
     </section>
 {% endblock %}
