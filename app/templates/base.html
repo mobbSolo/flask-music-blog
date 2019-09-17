@@ -9,14 +9,29 @@
         <title>Welcome to MusicBlog</title>
         {% endif %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <style>
+            .hero { animation: pulse 16s infinite; }
+            @keyframes pulse {
+                0% {
+                  background-color: #D71C5E;
+                }
+                50% {
+                  background-color: #1C4FD7;
+                }
+                100% {
+                  background-color: #D71C5E;
+                }
+            }    
+        </style>
     </head>
     <body>
-        <section class="hero is-danger is-small is-bold">
+        <section class="hero is-small">
             <div class="hero-body">
                 <div class="container">
                 <a href="{{ url_for('index') }}">
-                    <img src="static/accintentional_ascii.png">
+                    <img src="static/accintentional_ascii.png" class="w3-hover-sepia">
                     <!--<h1 class="title is-1">-->
                         <!--Musicblog:-->
                     <!--</h1>-->
