@@ -1,11 +1,15 @@
-<h4 class="title is-4" style="margin-bottom:-2px">{{ post.title }}</h4>
+<h4 class="title is-4" style="margin-bottom:-14px; font-family:'Mrs Sheppards', cursive; font-size:3em">
+{{ post.title }}
+</h4>
 <div class="block" style="padding-bottom:30px">
     <div class="box has-text-centered">
         {% if post.link %}
-    <div class="media">
-        <!--<iframe width="560" height="315" src="{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-        {% autoescape on %}{{ post.link }}{% endautoescape %}
-    </div>
+        <div class="media">
+            <!--<iframe width="560" height="315" src="{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+            {% autoescape on %}
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% endautoescape %}
+        </div>
         {% endif %}
         {% if post.body %}
         <p class="content">{{ post.body }}</p>
