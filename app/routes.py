@@ -1,4 +1,5 @@
 from flask import render_template, url_for, request
+from string import Template
 from app import app
 from app.models import Post
 
@@ -14,3 +15,18 @@ def index():
             if posts.has_prev else None
     return render_template('index.html', title='Home', posts=posts.items,
                             next_url=next_url, prev_url=prev_url)
+
+@app.route('/videos/<vid>')
+def videos(vid):
+    vidtemplate = Template("""
+        <h2>
+          YouTube video link:
+          <a href="https://www.youtube.com/watch?v=${youtube_id}">
+            ${youtube_id}
+          </a>
+        </h2>
+
+        <iframe src="https://www.youtube.com/embed/${youtube_id}" width="853" height="480" frameborder="0" allowfullscreen></iframe>
+    """)
+
+    return vidtemplate.substitute(youtube_id=vid)
