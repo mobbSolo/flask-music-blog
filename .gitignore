@@ -17,3 +17,4 @@ __pycache__/
 *.db
 Session.vim
 logs/
+Session.vim
