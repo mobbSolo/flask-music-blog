@@ -10,6 +10,8 @@ flask = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-admin = "*"
+googleapiclient = "*"
+google-api-python-client = "*"
 
 [requires]
 python_version = "3.7"
