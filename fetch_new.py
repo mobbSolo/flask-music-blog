@@ -32,7 +32,7 @@ def main():
 
     api_service_name = "youtube"
     api_version = "v3"
-    DEVELOPER_KEY = "AIzaSyBXKd07M6U6Fqu5WUck4_-HjIr_lLOD7ZQ"
+    DEVELOPER_KEY = os.environ.get('GOOGLE_API_KEY') # WOOOPS! KEY-CHANGED
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
@@ -40,35 +40,29 @@ def main():
     request = youtube.activities().list(
         part="snippet,contentDetails",
         channelId="UC7PGJuACuivUYrMytFvHV6Q",
-        maxResults=8
+        maxResults=8,
         # publishedAfter="2019-11-21T15:54:33.000Z"
         publishedAfter=LATEST_VIDEO
     )
-    if request.execute():
-        son = request.execute()
-        print(son)
+
+    son = request.execute()
+    if not son:
+        print('No new uploads')
     else:
-        print('no new posts')
 
+        total_vids = len(son['items'])
 
+        chan_name = son['items'][0]['snippet']['channelTitle']
+        published = son['items'][0]['snippet']['publishedAt']
+        title = son['items'][0]['snippet']['title']
+        idee = son['items'][0]['contentDetails']['upload']['videoId']
 
+        print(str(total_vids) + ' New Videos in ' + chan_name + ' Channel')
+        print()
+        print(published)
+        print(title)
+        print(idee)
 
-    total_vids = len(son['items'])
-
-    chan_name = son['items'][0]['snippet']['channelTitle']
-    published = son['items'][0]['snippet']['publishedAt']
-    title = son['items'][0]['snippet']['title']
-    idee = son['items'][0]['contentDetails']['upload']['videoId']
-
-    os.environ['LATEST_VIDEO'] = str(published)
-
-    print(str(total_vids) + ' Videos TOTAL in ' + chan_name + ' Channel')
-    print()
-    print(published)
-    print(title)
-    print(idee)
-
-    print(os.environ.get('LATEST_VIDEO'))
 
 
 if __name__ == "__main__":
