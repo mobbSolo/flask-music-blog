@@ -1,16 +1,15 @@
-#! /usr/bin/python
-
 """
 GET timestamp of the latest database entry
 COMPARE timestamp with latest youtube channel posting
 IF ther is a NEWER upload, ADD to our Database
 """
-
-import os
-import json
-import sqlite3
+import os, json, sqlite3, datetime
+import dateutil.parser
 import googleapiclient.discovery
+from dateutil.relativedelta import *
 
+
+DATABASE = 'test.db'
 
 
 def fetch_last_timestamp(data):
@@ -18,17 +17,18 @@ def fetch_last_timestamp(data):
        in our database"""
     with sqlite3.connect(data) as base:
         curse = base.cursor()
-        curse.execute("""SELECT * FROM post ORDER BY timestamp DESC LIMIT 1;""")
+        curse.execute("""SELECT * FROM post
+                        ORDER BY timestamp DESC LIMIT 1;""")
         row = curse.fetchone()
-        return row[4]
+        # Return a datetime object from timestamp
+        return dateutil.parser.parse(row[4])
 
 
 
-def main():
+def fetch_new_video(last_pub):
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-
 
     api_service_name = "youtube"
     api_version = "v3"
@@ -41,30 +41,50 @@ def main():
         part="snippet,contentDetails",
         channelId="UC7PGJuACuivUYrMytFvHV6Q",
         maxResults=8,
-        # publishedAfter="2019-11-21T15:54:33.000Z"
-        publishedAfter=LATEST_VIDEO
+        publishedAfter=last_pub.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+        # publishedAfter="2019-11-30T11:58:32.000Z"
+        # publishedAfter="2019-11-25T21:54:33.000Z"
     )
 
     son = request.execute()
-    if not son:
-        print('No new uploads')
+    new_post =[]
+
+    if len(son['items']) < 1:
+        return 'No new uploads'
     else:
 
-        total_vids = len(son['items'])
+        print('Adding to Database:')
+        for each in range(len(son['items'])):
+            # chan_name = son['items'][each]['snippet']['channelTitle']
+            title = son['items'][each]['snippet']['title']
+            link_id = son['items'][each]['contentDetails']['upload']['videoId']
+            published = dateutil.parser.parse(
+                        son['items'][each]['snippet']['publishedAt'])
 
-        chan_name = son['items'][0]['snippet']['channelTitle']
-        published = son['items'][0]['snippet']['publishedAt']
-        title = son['items'][0]['snippet']['title']
-        idee = son['items'][0]['contentDetails']['upload']['videoId']
+            post = (title, link_id, published)
+            new_post.append(post)
+            # print(published <= "2019-11-30T11:58:32.000Z")
+            print()
+            print(title)
+            print(link_id)
+            print(published)
 
-        print(str(total_vids) + ' New Videos in ' + chan_name + ' Channel')
-        print()
-        print(published)
-        print(title)
-        print(idee)
-
+    return new_post
 
 
 if __name__ == "__main__":
-    LATEST_VIDEO = fetch_last_timestamp('app.db')
-    main()
+    print('##  ' + str(fetch_last_timestamp(DATABASE)))
+    LATEST_VIDEO = fetch_last_timestamp(DATABASE)+relativedelta(minutes=+1)
+    print('##  LATEST_VIDEO time: ' + str(LATEST_VIDEO))
+    print(type(LATEST_VIDEO))
+    print('---------------------------------------------')
+    posts = fetch_new_video(LATEST_VIDEO)
+
+    if posts == 'No new uploads':
+        print(posts + ' Nothing added')
+    else:
+        with sqlite3.connect('test.db') as base:
+            curse = base.cursor()
+            curse.executemany('''INSERT INTO post(title, link, timestamp)
+                                VALUES(?, ?, ?)''', posts)
+
