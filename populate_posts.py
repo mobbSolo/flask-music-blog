@@ -1,9 +1,9 @@
-"""
+""" populate_posts.py
 GET timestamp of the latest database entry
 COMPARE timestamp with latest youtube channel posting
 IF ther is a NEWER upload, ADD to our Database
 """
-import os, datetime, sqlite3
+import os, re, datetime, sqlite3
 import dateutil.parser
 import googleapiclient.discovery
 
@@ -35,7 +35,7 @@ def fetch_videos():
 
     for each in range(len(son['items'])):
         # chan_name = son['items'][each]['snippet']['channelTitle']
-        title = son['items'][each]['snippet']['title']
+        title = son['items'][each]['snippet']['title'].split(' (')[0]
         link_id = son['items'][each]['contentDetails']['upload']['videoId']
         published = dateutil.parser.parse(
                     son['items'][each]['snippet']['publishedAt']
