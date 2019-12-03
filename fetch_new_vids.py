@@ -56,14 +56,14 @@ def fetch_new_video(last_pub):
         print('Adding to Database:')
         for each in range(len(son['items'])):
             # chan_name = son['items'][each]['snippet']['channelTitle']
-            title = son['items'][each]['snippet']['title']
+            title = son['items'][each]['snippet']['title'].split('(')[0]
             link_id = son['items'][each]['contentDetails']['upload']['videoId']
             published = dateutil.parser.parse(
                         son['items'][each]['snippet']['publishedAt']
             )
             time = published.strftime('%Y-%m-%d %H:%M:%S%z')
 
-            post = (title, link_id, time)
+            post = (title.title(), link_id, time)
             new_post.append(post)
             # print(published <= "2019-11-30T11:58:32.000Z")
             print()
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     if posts == 'No new uploads':
         print(posts + ' Nothing added')
     else:
-        with sqlite3.connect('test.db') as base:
+        with sqlite3.connect(DATABASE) as base:
             curse = base.cursor()
             curse.executemany('''INSERT INTO post(title, link, timestamp)
                                 VALUES(?, ?, ?)''', posts)
