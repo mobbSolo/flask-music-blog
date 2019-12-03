@@ -1,9 +1,11 @@
 ## Personal Music Blog
-Simple Flask Blog for posting original music hosted on youtube or soundcloud etc..
+Simple Flask Blog for posting original music hosted on youtube.. Secretly built this for a friend of mine.
 
 ---
-#### TODO:
-* fix hardcoded iframe in post links
-* CSS/Stylize (Bulma?)
-* Add a daily i Ching hexagram on homepage with my iChing script
-* Tests!
+#### `fetch_new_vids.py`:
+
+* This script (run via cron-job) will check the given youtube channel for new uploads then add them to our database.
+
+#### `populate_posts.py`:
+
+* This script is run initially to populate our database with all the videos from a given channel
