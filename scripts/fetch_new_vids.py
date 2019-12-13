@@ -10,6 +10,7 @@ from dateutil.relativedelta import *
 
 
 DATABASE = 'test.db'
+CHANNEL_ID = "UC7PGJuACuivUYrMytFvHV6Q" #Dr. Sandpaper Channel
 
 
 def fetch_last_timestamp(data):
@@ -39,8 +40,8 @@ def fetch_new_video(last_pub):
 
     request = youtube.activities().list(
         part="snippet,contentDetails",
-        channelId="UC7PGJuACuivUYrMytFvHV6Q",
-        maxResults=8,
+        channelId=CHANNEL_ID
+        maxResults=5,
         publishedAfter=last_pub.strftime('%Y-%m-%dT%H:%M:%S.000Z')
         # publishedAfter="2019-11-30T11:58:32.000Z"
         # publishedAfter="2019-11-25T21:54:33.000Z"

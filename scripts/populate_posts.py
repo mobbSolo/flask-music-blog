@@ -9,6 +9,7 @@ import googleapiclient.discovery
 
 
 DATABASE = 'test.db'
+CHANNEL_ID = "UC7PGJuACuivUYrMytFvHV6Q" #Dr. Sandpaper Channel
 
 
 def fetch_videos():
@@ -25,7 +26,7 @@ def fetch_videos():
 
     request = youtube.activities().list(
         part="snippet,contentDetails",
-        channelId="UC7PGJuACuivUYrMytFvHV6Q",
+        channelId=CHANNEL_ID,
         maxResults=39
     )
 
