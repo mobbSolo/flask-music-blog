@@ -6,12 +6,15 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask = "*"
-flask-sqlalchemy = "*"
-flask-migrate = "*"
-flask-admin = "*"
-googleapiclient = "*"
-google-api-python-client = "*"
+click = "*"
+itsdangerous = "*"
+Flask = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Werkzeug = "*"
+Flask-SQLAlchemy = "*"
+Flask-Migrate = "*"
+Flask-Admin = "*"
 
 [requires]
 python_version = "3.7"
