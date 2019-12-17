@@ -18,3 +18,4 @@ __pycache__/
 Session.vim
 logs/
 Session.vim
+.env
