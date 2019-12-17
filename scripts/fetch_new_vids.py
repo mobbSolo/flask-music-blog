@@ -9,7 +9,7 @@ import googleapiclient.discovery
 from dateutil.relativedelta import *
 
 
-DATABASE = 'test.db'
+DATABASE = 'songs.db'
 CHANNEL_ID = "UC7PGJuACuivUYrMytFvHV6Q" #Dr. Sandpaper Channel
 
 

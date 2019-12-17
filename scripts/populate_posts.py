@@ -8,7 +8,7 @@ import dateutil.parser
 import googleapiclient.discovery
 
 
-DATABASE = 'test.db'
+DATABASE = 'songs.db'
 CHANNEL_ID = "UC7PGJuACuivUYrMytFvHV6Q" #Dr. Sandpaper Channel
 
 
