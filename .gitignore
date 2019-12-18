@@ -19,3 +19,5 @@ Session.vim
 logs/
 Session.vim
 .env
+scripts/fetch_test.py
+scripts/populate_test.py
