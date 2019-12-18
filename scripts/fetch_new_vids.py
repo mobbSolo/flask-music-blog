@@ -40,7 +40,7 @@ def fetch_new_video(last_pub):
 
     request = youtube.activities().list(
         part="snippet,contentDetails",
-        channelId=CHANNEL_ID
+        channelId=CHANNEL_ID,
         maxResults=5,
         publishedAfter=last_pub.strftime('%Y-%m-%dT%H:%M:%S.000Z')
         # publishedAfter="2019-11-30T11:58:32.000Z"
