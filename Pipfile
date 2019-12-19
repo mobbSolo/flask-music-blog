@@ -18,6 +18,7 @@ Flask-Admin = "*"
 gunicorn = "*"
 google-api-python-client = "*"
 python-dotenv = "*"
+python-dateutil = "*"
 
 [requires]
 python_version = "3.7"
