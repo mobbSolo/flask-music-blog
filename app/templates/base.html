@@ -4,10 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% if title %}
-        <title>{{ title }} - MusicBlog</title>
+        <title>{{ title }} - Dr. Sandpaper</title>
         {% else %}
-        <title>Welcome to MusicBlog</title>
+        <title>Dr. Sandpaper Recordings</title>
         {% endif %}
+
+	<meta property="og:url" content="https://accintentional.com" />
+	<meta property="og:title" content="Doctor Sandpaper Recordings"/>
+	<meta property="og:description" content="A collection of little dittys recorded by Alex Roysdon. Many of which have been inspired by businesses in Austin, TX" />
+	<meta property="og:image" content="https://accintentional.com/static/dr_sandpaper_color_web.png"/>
+       
         <!--ICONS & FAVICON-->
         <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">

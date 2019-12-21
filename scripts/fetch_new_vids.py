@@ -43,8 +43,6 @@ def fetch_new_video(last_pub):
         channelId=CHANNEL_ID,
         maxResults=5,
         publishedAfter=last_pub.strftime('%Y-%m-%dT%H:%M:%S.000Z')
-        # publishedAfter="2019-11-30T11:58:32.000Z"
-        # publishedAfter="2019-11-25T21:54:33.000Z"
     )
 
     son = request.execute()
@@ -79,7 +77,6 @@ if __name__ == "__main__":
     print('##  ' + str(fetch_last_timestamp(DATABASE)))
     LATEST_VIDEO = fetch_last_timestamp(DATABASE)+relativedelta(minutes=+1)
     print('##  LATEST_VIDEO time: ' + str(LATEST_VIDEO))
-    print(type(LATEST_VIDEO))
     print('---------------------------------------------')
     posts = fetch_new_video(LATEST_VIDEO)
 
