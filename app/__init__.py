@@ -18,7 +18,7 @@ app_name = app.config['APP_NAME']
 from app import routes, models, errors
 admin = Admin(app, name=f'{app_name} Admin Panel')
 admin.add_view(ModelView(models.Post, db.session))
-app.config['FLASK_ADMIN_SWATCH'] = 'solar'
+app.config['FLASK_ADMIN_SWATCH'] = 'cyborg'
 
 # ERROR LOGGING TO EMAIL
 # if not app.debug:
