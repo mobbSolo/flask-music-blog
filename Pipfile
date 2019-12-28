@@ -19,6 +19,7 @@ gunicorn = "*"
 google-api-python-client = "*"
 python-dotenv = "*"
 python-dateutil = "*"
+flask-login = "*"
 
 [requires]
 python_version = "3.7"
