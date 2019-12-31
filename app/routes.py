@@ -29,5 +29,4 @@ def videos(vid):
         <iframe src="https://www.youtube.com/embed/${youtube_id}" width="569" height="315" frameborder="2" allowfullscreen></iframe>
     """)
 
-    # return vidtemplate.substitute(youtube_id=vid)
     return render_template('videos.html', title='Videos', content=vidtemplate.substitute(youtube_id=vid))
