@@ -20,6 +20,7 @@ google-api-python-client = "*"
 python-dotenv = "*"
 python-dateutil = "*"
 flask-login = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.7"
