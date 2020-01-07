@@ -27,7 +27,7 @@ def fetch_videos():
     request = youtube.activities().list(
         part="snippet,contentDetails",
         channelId=CHANNEL_ID,
-        maxResults=39
+        # maxResults=39
     )
 
     son = request.execute()
