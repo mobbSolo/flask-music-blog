@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from flask_login import LoginManager
 
 
 app = Flask(__name__)
@@ -19,6 +20,7 @@ from app import routes, models, errors
 admin = Admin(app, name=f'{app_name} Admin Panel')
 admin.add_view(ModelView(models.Post, db.session))
 app.config['FLASK_ADMIN_SWATCH'] = 'cyborg'
+login = LoginManager(app)
 
 # ERROR LOGGING TO EMAIL
 # if not app.debug:
