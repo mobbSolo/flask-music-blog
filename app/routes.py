@@ -1,7 +1,8 @@
 from flask import render_template, url_for, request
 from string import Template
 from app import app
-from app.models import Post
+from app.models import Post, User
+from flask_login import login_user, logout_user, current_user, login_required
 
 @app.route('/')
 @app.route('/index')
@@ -15,6 +16,7 @@ def index():
             if posts.has_prev else None
     return render_template('index.html', title='Home', posts=posts.items,
                             next_url=next_url, prev_url=prev_url)
+
 
 @app.route('/videos/<vid>')
 def videos(vid):
@@ -30,3 +32,15 @@ def videos(vid):
     """)
 
     return render_template('videos.html', title='Videos', content=vidtemplate.substitute(youtube_id=vid))
+
+@app.route('/login')
+def login():
+    user = User.query.get(1)
+    login_user(user)
+    return 'Logged In!'
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return 'Logged Out'
