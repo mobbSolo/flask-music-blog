@@ -16,7 +16,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 app_name = app.config['APP_NAME']
 login = LoginManager(app)
-login.login_view = 'login'
+# login.login_view = 'login'
 
 class MyAdminIndex(AdminIndexView):
     def is_accessible(self):
@@ -34,7 +34,7 @@ app.config['FLASK_ADMIN_SWATCH'] = 'cyborg'
         # auth = None
         # if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
             # auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
-        # secure = None
+       # secure = None
         # if app.config['MAIL_USE_TLS']:
             # secure = ()
         # mail_handler = SMTPHandler(
