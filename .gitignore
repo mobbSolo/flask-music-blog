@@ -20,3 +20,4 @@ logs/
 Session.vim
 scripts/fetch_test.py
 scripts/populate_test.py
+.idea/
