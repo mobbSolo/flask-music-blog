@@ -1,11 +1,12 @@
 import logging
 import os
 from logging.handlers import SMTPHandler, RotatingFileHandler
-from flask import Flask
+from flask import Flask, redirect, url_for
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_admin import Admin, AdminIndexView
+from flask_admin.menu import MenuLink
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, current_user
 
@@ -22,9 +23,26 @@ class MyAdminIndex(AdminIndexView):
     def is_accessible(self):
         return current_user.is_authenticated
 
+    def _handle_view(self, name, **kwargs):
+        """
+            This method will be executed before calling any view method.
+
+            By default, it will check if the admin class is accessable
+            and if it is NOT it will throw a 404.
+
+            :param name:
+                View function name
+            :param kwargs:
+                View function arguments
+        """
+        if not self.is_accessible():
+            return redirect(url_for("login"))
+
+
 from app import routes, models, errors
 admin = Admin(app, name=f'{app_name} Admin Panel', index_view=MyAdminIndex())
 admin.add_view(ModelView(models.Post, db.session))
+admin.add_link(MenuLink(name='Sign Out', url='/logout'))
 app.config['FLASK_ADMIN_SWATCH'] = 'cyborg'
 
 

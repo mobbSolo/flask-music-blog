@@ -53,7 +53,9 @@ def login():
 
 
 @app.route('/logout')
-@login_required
+# @login_required
 def logout():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
     logout_user()
     return 'Logged Out'
