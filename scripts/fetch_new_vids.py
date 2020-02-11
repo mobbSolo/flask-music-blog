@@ -29,7 +29,8 @@ def fetch_last_timestamp(data):
 def fetch_new_video(last_pub):
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
-    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = os.environ.get('FLASK_DEBUG')
+    print(os.environ.get("OAUTHLIB_INSECURE_TRANSPORT"))
 
     api_service_name = "youtube"
     api_version = "v3"

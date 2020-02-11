@@ -7,6 +7,7 @@ node_modules
 npm-debug.log
 db.sqlite3
 geckodriver.log
+.idea/
 tags
 .tags
 .envrc
