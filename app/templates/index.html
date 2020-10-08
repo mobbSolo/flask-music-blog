@@ -9,13 +9,15 @@
     </div>
     <section class="section">
         <nav class="pagination">
+        {% if next_url %}
+        <a href="{{ next_url }}" class="pagination-next">Older posts</a>
+        {% else %}
+        <a href="None" class="pagination-next" disabled>Older posts</a>
+        {% endif %}
         {% if prev_url %}
         <a href="{{ prev_url }}" class="pagination-previous" >Newer posts</a>
         {% else %}
-        <a href="None" class="pagination-previous" disabled>Newer posts</a>
-        {% endif %}
-        {% if next_url %}
-        <a href="{{ next_url }}" class="pagination-next">Older posts</a>
+        <a class="pagination-previous" disabled>Newer posts</a>
         {% endif %}
     </section>
 {% endblock %}
