@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config['APP_NAME'] }}</title>
 
+        <!--SHARABILITY-->
         <meta property="og:url" content="https://accintentional.com" />
         <meta property="og:title" content="Doctor Sandpaper Recordings"/>
         <meta property="og:description" content="A collection of little dittys. Many of which have been inspired by spots in Austin, TX" />
@@ -28,31 +29,13 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <!--STYLES-->
         <link rel="stylesheet" href="{{ url_for('static', filename='bulmaswatch.min.css') }}">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
         <!--FONTS-->
         <link href="https://fonts.googleapis.com/css?family=Mrs+Sheppards&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/1b953d886a.js" crossorigin="anonymous"></script>
-        <style>
-            .hero { animation: pulse 23s infinite; }
-            @keyframes pulse {
-                0% {
-                  background-color: #1C4FD7;
-                }
-                50% {
-                  background-color: #D71C5E;
-                }
-                100% {
-                  background-color: #1C4FD7;
-                }
-            }
-
-            #full-page {
-                background: linear-gradient(180deg, rgba(13,13,13,1) 0%, rgba(34,12,67,1) 50%, rgba(13,13,13,1) 100%);
-                min-height: 800px;
-            }
-
-        </style>
     </head>
     <body>
         <!--<hr>-->

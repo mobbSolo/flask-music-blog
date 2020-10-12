@@ -3,14 +3,14 @@
 {% include '_hero.html' %}
 
 {% block content %}
-<div class="columns is-centered">
-    <div class="column is-hidden-mobile">left</div>
+<div class="columns is-centered is-mobile">
+    <div class="column debug is-hidden-mobile">left</div>
     <div class="column is-centered is-half-tablet is-four-fifths-mobile has-text-centered">
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
     </div>
-    <div class="column is-hidden-mobile">right</div>
+    <div class="column debug has-text-right is-hidden-mobile">right</div>
 </div>
 <section class="section">
     <nav class="pagination is-small" role="navigation">
