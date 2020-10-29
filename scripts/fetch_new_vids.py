@@ -1,8 +1,9 @@
-"""
-GET timestamp of the latest database entry
-COMPARE timestamp with latest youtube channel posting
-IF ther is a NEWER upload, ADD to our Database
-"""
+# fetch_new_vids.py
+
+#  GET timestamp of the latest database entry
+#  COMPARE timestamp with latest post from our youtube channel
+#  IF there is a post dated NEWER --> ADD it to our Database
+
 import os, json, sqlite3, datetime
 import dateutil.parser
 import googleapiclient.discovery
