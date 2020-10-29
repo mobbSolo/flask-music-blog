@@ -21,10 +21,10 @@
     }
 }
 
-#posts { margin-bottom: 5em; margin-top: 5em }
+#posts { margin-bottom: 9em; margin-top: 5em }
 
 #full-page {
-    background: linear-gradient(180deg, rgba(13,13,13,1) 0%, rgba(34,12,67,1) 50%, rgba(13,13,13,1) 100%);
+    background: linear-gradient(45deg, rgba(13,13,13,1) 0%, rgba(34,12,67,1) 50%, rgba(13,13,13,1) 100%);
     min-height: 800px;
 }
 
