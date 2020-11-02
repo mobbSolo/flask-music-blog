@@ -1,5 +1,6 @@
 .debug {
   border: dashed white;
+  background-color: #FF4191;
 }
 
 .box {
@@ -8,7 +9,7 @@
   background-repeat: repeat;
 }
 
-.hero-body { animation: pulse 10s infinite; }
+.head-body { animation: pulse 10s infinite; }
 @keyframes pulse {
     0% {
       background-color: #1C4FD7;
@@ -20,6 +21,14 @@
       background-color: #1C4FD7;
     }
 }
+
+#post-title {
+    font-family:"Mrs Sheppards", cursive; 
+    text-shadow: -1px 3px 0px black;
+    line-height: .8;
+    width: 387px;
+    z-index: 23;
+    margin-bottom:-10;
 
 #posts { margin-bottom: 9em; margin-top: 5em }
 
