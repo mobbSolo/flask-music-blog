@@ -15,7 +15,7 @@ CHANNEL_ID = "UC7PGJuACuivUYrMytFvHV6Q" #Dr. Sandpaper Channel
 def fetch_videos():
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
-    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "0"
 
     api_service_name = "youtube"
     api_version = "v3"
