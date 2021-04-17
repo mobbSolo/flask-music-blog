@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config['APP_NAME'] }}</title>
 
-        <meta property="og:url" content="https://accintentional.com" />
+        <!--SHARABILITY-->
+        <meta property="og:url" content="https://sandpaperland.com" />
         <meta property="og:title" content="Doctor Sandpaper Recordings"/>
-        <meta property="og:description" content="A collection of little dittys. Many of which have been inspired by spots in Austin, TX" />
-        <meta property="og:image" content="https://accintentional.com/static/dr_sandpaper_color_web.png"/>
+        <meta property="og:description" content="Austin, TX: Song poems, Sign Installation & Jingles" />
+        <meta property="og:image" content="https://sandpaperland.com/static/dr_sandpaper_color_web.png"/>
         <!--ICONS & FAVICON-->
         <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -28,50 +29,19 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <!--<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css">-->
+        <!--STYLES-->
         <link rel="stylesheet" href="{{ url_for('static', filename='bulmaswatch.min.css') }}">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
         <!--FONTS-->
         <link href="https://fonts.googleapis.com/css?family=Mrs+Sheppards&display=swap" rel="stylesheet">
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-        <style>
-            .hero { animation: pulse 16s infinite; }
-            @keyframes pulse {
-                0% {
-                  background-color: #1C4FD7;
-                }
-                50% {
-                  background-color: #D71C5E;
-                }
-                100% {
-                  background-color: #1C4FD7;
-                }
-            }
-
-            #full-page {
-        background: linear-gradient(180deg, rgba(13,13,13,1) 0%, rgba(34,12,67,1) 50%, rgba(13,13,13,1) 100%);
-            }
-
-        </style>
+        <script src="https://kit.fontawesome.com/1b953d886a.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <section class="hero is-small">
-            <div class="hero-body">
-                <div class="container">
-                <a href="{{ url_for('index') }}">
-                    <img src="/static/dr_sandpaper_gray_gradient.png" class="w3-hover-sepia">
-                </a>
-                </div>
-            </div>
-        </section>
         <!--<hr>-->
-        <section class="section" id="full-page">
-            <div class="columns is-centered">
-                <div class"column is-half">
-                {% block content %}{% endblock %}
-                </div>
-            </div>
-        </section>
+        <main class="ds-main" id="full-page">
+            {% block content %}{% endblock %}
+        </main>
         {% block footer %}{% endblock %}
     </body>
 </html>

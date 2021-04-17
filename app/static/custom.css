@@ -1,0 +1,30 @@
+.debug {
+  border: dashed white;
+}
+
+.box {
+  box-shadow:-3px 5px 5px 2px rgba(0, 0, 0, .65);
+  background-image: url("hash2b.png");
+  background-repeat: repeat;
+}
+
+.hero-body { animation: pulse 10s infinite; }
+@keyframes pulse {
+    0% {
+      background-color: #1C4FD7;
+    }
+    50% {
+      background-color: #EB004C;
+    }
+    100% {
+      background-color: #1C4FD7;
+    }
+}
+
+#posts { margin-bottom: 9em; margin-top: 5em }
+
+#full-page {
+    background: linear-gradient(45deg, rgba(13,13,13,1) 0%, rgba(34,12,67,1) 50%, rgba(13,13,13,1) 100%);
+    min-height: 800px;
+}
+

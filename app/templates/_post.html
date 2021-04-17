@@ -1,31 +1,18 @@
-<h4 class="title is-4" style="margin-bottom:-14px; font-family:'Mrs Sheppards', cursive; font-size:3em">
-{{ post.title }}
-</h4>
-<div class="block" style="padding-bottom:30px">
-    <div class="box has-text-centered">
-        {% if post.link %}
-        <div class="media">
-            {% autoescape on %}
-<!--              <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/{{ post.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- -->            
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/{{ post.link }}"
-              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/{{ post.link }}?autoplay=1><img src=https://img.youtube.com/vi/{{ post.link }}/hqdefault.jpg><span>▶</span></a>"
-              frameborder="0" loading="lazy"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            {% endautoescape %}
-        </div>
-        {% endif %}
-        <div>
-        {% if post.body %}
-        <div>
-        <p class="content">{{ post.body }}</p>
-        </div>
-        {% endif %}
-        </div>
+<div class="container has-text-centered" id="posts">
+<h4 class="title is-1" style="line-height: .8; width: 387px; z-index: 23;text-shadow: -1px 3px 0px black; margin-bottom:-10; font-family:'Mrs Sheppards', cursive; "> {{ post.title }} </h4>
+    <div class="box is-8" >
+    {% if post.link %}{% autoescape on %}
+        <iframe
+            width="350px"
+            src="https://www.youtube-nocookie.com/embed/{{ post.link }}"
+            srcdoc="<style>*{width:100%;padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:-3px 5px 1px black}</style><a href=https://www.youtube-nocookie.com/embed/{{ post.link }}?autoplay=1><img src=https://img.youtube.com/vi/{{ post.link }}/hqdefault.jpg><span>▶</span></a>"
+            frameborder="0" loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+    {% endautoescape %}{% endif %}
+    {% if post.body %}
+    <p class="content has-border">{{ post.body }}</p>
+    {% endif %}
     </div>
 </div>

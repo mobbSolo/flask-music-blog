@@ -1,18 +1,28 @@
 {% extends "base.html" %}
 
+{% include '_hero.html' %}
+
 {% block content %}
-    <div class="container has-text-centered">
-    {% for post in posts %}
-        {% include '_post.html' %}
-    {% endfor %}
-    </div>
-    <section class="section">
-        <nav class="pagination">
-        {% if prev_url %}
-        <a href="{{ prev_url }}" class="pagination-previous" >Newer posts</a>
-        {% endif %}
+<div class="container">
+    <div class="columns is-centered is-mobile has-text-centered" >
+        <div class="column is-narrow">
+                    
+
+        {% for post in posts %}
+            {% include '_post.html' %}
+        {% endfor %}
+                   
+
+        <nav class="pagination" role="navigation">
         {% if next_url %}
-        <a href="{{ next_url }}" class="pagination-next">Older posts</a>
+            <a href="{{ next_url }}" class="pagination-next">Older thangs</a>
+        {% else %}
+            <a href="None" class="pagination-next" disabled>Older thangs</a>
         {% endif %}
-    </section>
+        {% if prev_url %}
+            <a href="{{ prev_url }}" class="pagination-previous" >Newer stuffs</a>
+        {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
