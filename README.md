@@ -1,5 +1,6 @@
 ## Personal Music Blog
-Simple Flask Blog for posting original music hosted on youtube.. Secretly built for a friend of mine.
+Auto-blog for posting original music hosted on youtube.. Secretly built for a friend of mine.
+Later too support posts from other content providers.
 
 ---
 #### `fetch_new_vids.py`:
