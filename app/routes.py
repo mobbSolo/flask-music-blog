@@ -19,20 +19,25 @@ def index():
                             next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/videos/<vid>')
-def videos(vid):
-    vidtemplate = Template("""
-        <h2>
-          Video link:
-          <a href="https://www.youtube.com/watch?v=${youtube_id}">
-            ${youtube_id}
-          </a>
-        </h2>
+@app.route('/mapper')
+def mapper():
+    return render_template('map-shit.html', title="Sandpaper's Guide to Austin")
 
-        <iframe src="https://www.youtube.com/embed/${youtube_id}" width="569" height="315" frameborder="2" allowfullscreen></iframe>
-    """)
 
-    return render_template('videos.html', title='Videos', content=vidtemplate.substitute(youtube_id=vid))
+#  @app.route('/videos/<vid>')
+#  def videos(vid):
+    #  vidtemplate = Template("""
+        #  <h2>
+          #  Video link:
+          #  <a href="https://www.youtube.com/watch?v=${youtube_id}">
+            #  ${youtube_id}
+          #  </a>
+        #  </h2>
+#
+        #  <iframe src="https://www.youtube.com/embed/${youtube_id}" width="569" height="315" frameborder="2" allowfullscreen></iframe>
+    #  """)
+#
+    #  return render_template('videos.html', title='Videos', content=vidtemplate.substitute(youtube_id=vid))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
