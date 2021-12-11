@@ -16,9 +16,8 @@ __pycache__/
 *.pyc
 *.pid
 *.db
-Session.vim
+*.vim
 logs/
-Session.vim
 scripts/fetch_test.py
 scripts/populate_test.py
 .idea/
