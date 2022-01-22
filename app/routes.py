@@ -19,9 +19,12 @@ def index():
                             next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/mapper')
+@app.route('/mapper/')
 def mapper():
-    return render_template('map-shit.html', title="Sandpaper's Guide to Austin")
+    user = app.config['MAPBOX_USER']
+    pubk = app.config['MAPBOX_PUBK']
+    return render_template('map-shit.html', title="Sandpaper's Guide to Austin",
+                           mb_user=user, mb_pubk=pubk)
 
 
 #  @app.route('/videos/<vid>')

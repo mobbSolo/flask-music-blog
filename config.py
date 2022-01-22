@@ -4,6 +4,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     APP_NAME = 'Dr Sandpaper'
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    MAPBOX_USER = os.environ.get('MAPBOX_USER')
+    MAPBOX_PUBK = os.environ.get('MAPBOX_PUBK')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
             'sqlite:///' + os.path.join(basedir, 'songs.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
