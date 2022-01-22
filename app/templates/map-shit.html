@@ -1,7 +1,11 @@
 {% extends "base.html" %}
-
 {% include '_hero.html' %}
-
 {% block content %}
-{% include '_map.html' %}
+<section class="section ">
+    <div class="columns is-mobile is-centered">
+        <div class="column is-two-thirds">
+            <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/{{ mb_user }}/ckweq4zyr1m4m15qx6hg5mrx8.html?title=false&access_token={{ mb_pubk }}&zoomwheel=false#14.92/30.31721/-97.71873/29.6/1" title="Navigation-copy-copy" style="border:none;"></iframe>
+        </div>
+    </div>
+</section>
 {% endblock %}
